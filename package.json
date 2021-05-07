@@ -14,10 +14,27 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier-standard": "^4.0.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "node-sass": "^5.0.0",
+    "prettier-config-standard": "^4.0.0",
+    "prettier-standard": "^16.4.1",
+    "sass-loader": "^10.1.1",
+    "standard": "^16.0.3",
     "stylelint": "^13.12.0",
     "stylelint-config-standard": "^21.0.0"
   }
