@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid id="Contact"> 
     <v-layout row wrap>
       <v-flex xs12 class="text-center" mt-5>
         <h1>Contact</h1>

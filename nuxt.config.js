@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV !== 'production'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -19,7 +21,6 @@ export default {
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    // 'normalize.css/normalize.css',
     // charge un module Node.js directement (ici c'est un fichier SASS)
     // 'bulma',
     // fichier CSS dans notre projet
@@ -47,6 +48,15 @@ export default {
     '@nuxtjs/vuetify'
 
   ],
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      // console.log('to.hash = ', to.hash)
+      return { selector: to.hash }
+    } else {
+      // console.log('ELSE to.hash ')
+      return { x: 0, y: 0 }
+    }
+  },
   vuetify: {
     theme: {
       themes: {
@@ -83,13 +93,13 @@ export default {
   loading: { color: '#00bcd4' },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: true,
+    analyze: !isDev,
     babel: {
       plugins: [
         ['@babel/plugin-proposal-private-methods', { loose: true }]
       ]
     },
-    extractCSS: true,
+    extractCSS: !isDev,
     minimize: true,
     optimization: {
       splitChunks: {

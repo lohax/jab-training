@@ -1,23 +1,19 @@
 <template>
 
-  <v-app>
-
+  <v-app >
     <Navbar/>
-  
     <v-main>
       <nuxt />
     </v-main>
-
-    <Footer/>
-
-  
+    <Footer class="footer-mb"/>
   </v-app>
 
 </template>
 
-<script>
+<style >
+  .footer-mb {
+    margin-bottom: 115px;
+  }
 
-
-
-</script>
+</style>
 

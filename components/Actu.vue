@@ -1,11 +1,11 @@
 <template>
-  <v-container fluid>
+  <v-container fluid id="Actu">
     <v-layout row wrap>
       <v-flex xs12 class="text-center" mt-5>
-        <h1>Temoignages</h1>
+        <h1>Actu</h1>
       </v-flex>
       <v-flex xs12 class="text-center" mt-3>
-        <p>Temoignages</p>
+        <p>Actu</p>
       </v-flex>
     </v-layout>
   </v-container>

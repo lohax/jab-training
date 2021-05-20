@@ -1,5 +1,8 @@
 <template>
-  <v-item-group >
+
+  <v-item-group id="Services">
+    <h1>Ce que je vous propose</h1>
+
     <v-container>
       <v-row>
         <v-col
@@ -31,4 +34,15 @@
       </v-row>
     </v-container>
   </v-item-group>
+
 </template>
+<script>
+export default {
+
+  name: "Services",
+  data(){
+    return {
+    }
+  },
+};
+</script>

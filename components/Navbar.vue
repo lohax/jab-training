@@ -1,22 +1,24 @@
 <template>
     <div>
     <!-- navigation mobile -->
-    <v-navigation-drawer v-model="sidebar" app>
+    <v-navigation-drawer 
+      v-model="sidebar" 
+      app
+    >
 
       <v-list>
-        
         <v-list-item
           class="primary--text"
           v-for="item in menuItems"
           :key="item.title"
-          :to="item.path">
-          
-          <v-list-item-action>
-            <v-icon            >
-              {{ item.icon }}
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-content>{{ item.title }}</v-list-item-content>
+          @click="$vuetify.goTo(item.path, linkOptions)"
+        >
+        <v-list-item-action>
+          <v-icon            >
+            {{ item.icon }}
+          </v-icon>
+        </v-list-item-action>
+        <v-list-item-content>{{ item.title }}</v-list-item-content>
         </v-list-item>
       </v-list>
       
@@ -25,18 +27,22 @@
 
 
     <!-- navigation classique -->
-    <v-toolbar>
+    <!-- <v-app-bar fixed shrink-on-scroll lg> -->
+    <v-app-bar app>
 
       <span class="hidden-sm-and-up">
-        <v-app-bar-nav-icon @click="sidebar = !sidebar">
-        </v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="sidebar = !sidebar"></v-app-bar-nav-icon>
       </span>
 
       <v-toolbar-title >
-        <router-link to="/" tag="span" style="cursor: pointer;">
-        JAB
+        <router-link to="/" style="cursor: pointer;">
+        <v-img
+          lazy-src="img/logojab.jpg"
+          max-height="55"
+          max-width="55"
+          src="img/logojab.jpg"
+        ></v-img>
         
-          <!-- <img style="margin-top: 130px;" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5f4bd7a6-f763-4518-9b81-bdfd40ce3fc9/d26yer1-421bb5b8-9fc2-4d5a-b2d1-1e1f81b26b82.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVmNGJkN2E2LWY3NjMtNDUxOC05YjgxLWJkZmQ0MGNlM2ZjOVwvZDI2eWVyMS00MjFiYjViOC05ZmMyLTRkNWEtYjJkMS0xZTFmODFiMjZiODIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.p5vfqGmq9kIylfG3glHGa20CAPUtoWlAxKEGpIvGOi8"> -->
         </router-link>
       </v-toolbar-title>
 
@@ -49,7 +55,10 @@
           raised
           v-for="item in menuItems"
           :key="item.title"
-          :to="item.path">
+          @click="$vuetify.goTo(item.path, linkOptions)"
+          
+        >
+      <!-- :to="item.path" -->
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
@@ -66,7 +75,7 @@
         </v-toolbar-items>
       <!-- switch theme -->
 
-    </v-toolbar>
+    </v-app-bar>
     
     <!-- Fin navigation classique -->
 
@@ -81,14 +90,18 @@ export default {
       appTitle: 'Awesome App',
       sidebar: false,
       menuItems: [
-          { title: 'Accueil', path: '/', icon: 'mdi-home' },
-          { title: 'Services', path: '/services', icon: 'mdi-face' },
-          { title: 'Actu !', path: '/actu', icon: 'mdi-home' },
-          { title: 'Galerie', path: '/galerie', icon: 'mdi-home' },
-          { title: 'Produits', path: '/produits', icon: 'mdi-home' },
-          { title: 'Témoignages', path: '/temoignages', icon: 'mdi-home' },
-          { title: 'Contact', path: '/contact', icon: 'mdi-home' }
-     ]
+        { title: 'Accueil', path: '#Home', icon: 'mdi-home' },
+        { title: 'Services', path: '#Services', icon: 'mdi-face' },
+        { title: 'Actu !', path: '#Actu', icon: 'mdi-home' },
+        { title: 'Galerie', path: '#Galerie', icon: 'mdi-home' },
+        { title: 'Produits', path: '#Produits', icon: 'mdi-home' },
+        { title: 'Témoignages', path: '#Temoignages', icon: 'mdi-home' },
+        { title: 'Contact', path: '#Contact', icon: 'mdi-home' }
+      ],
+      linkOptions: { 
+        duration: 1000, 
+        offset: 0 
+      }
     }
   },
 };
